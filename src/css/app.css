@@ -1,0 +1,13 @@
+/* Custom color theme properties */
+:root {
+  --f7-theme-color: #38b1b4;
+  --f7-theme-color-rgb: 56, 177, 180;
+  --f7-theme-color-shade: #2e9295;
+  --f7-theme-color-tint: #4dc5c8;
+}
+
+#flavorText {
+  display: inline-flex;
+  float: right;
+}
+/* Your app custom styles here */
