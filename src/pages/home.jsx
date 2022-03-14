@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { getDevice } from "framework7";
 import {
   Page,
   PageContent,
@@ -20,45 +21,55 @@ import {
   FabButton,
   FabButtons,
   Icon,
+  Menu,
+  Card,
+  CardHeader,
 } from "framework7-react";
+import samLogo from "/assets/samSmithLogo.png";
+import samPic from "/assets/samPic.png";
+import Main from "./Main";
+import Schedule from "./Schedule";
 
-const HomePage = () => (
-  <Page name="home">
-    {/* Top Navbar */}
-    <Navbar large>
-      <NavTitleLarge>samSmithMassage logoHere</NavTitleLarge>
-    </Navbar>
-    <Block>New stuff</Block>
-    <PageContent>
-      <Fab position="right-bottom" slot="fixed" text="Schedule Appointment">
-        {/* <Icon ios="f7:plus" aurora="f7:plus" md="material:add" />
-        <Icon ios="f7:xmark" aurora="f7:xmark" md="material:close" />
-        <FabButtons position="left">
-          <FabButton>1</FabButton>
-          <FabButton>2</FabButton>
-          <FabButton>3</FabButton>
-        </FabButtons> */}
-      </Fab>
-      <Block id="flavorText">
-        World class massage in the comfort of your living room.
-      </Block>
-    </PageContent>
-    {/* Toolbar */}
+// const device = getDevice();
 
-    {/* <List>
-      <ListItem
-        title="Dynamic (Component) Route"
-        link="/dynamic-route/blog/45/post/125/?foo=bar#about"
-      />
-      <ListItem
-        title="Default Route (404)"
-        link="/load-something-that-doesnt-exist/"
-      />
-      <ListItem
-        title="Request Data & Load"
-        link="/request-and-load/user/123456/"
-      />
-    </List> */}
-  </Page>
-);
-export default HomePage;
+// const [currentPage, setPage] = useState("main");
+
+// const renderPage = () => {
+//   if (currentPage === "schedule") {
+//     return <Schedule />;
+//   }
+//   if (currentPage === "main") {
+//     return <Main />;
+//   }
+// };
+
+export default function HomePage() {
+  const [currentPage, setPage] = useState("main");
+
+  const renderPage = () => {
+    if (currentPage === "main") {
+      return <Main />;
+    }
+    if (currentPage === "schedule") {
+      return <Schedule />;
+    }
+  };
+
+  return (
+    <Page>
+      <div>{renderPage()}</div>
+      <Fab
+        // small
+        position="right-bottom"
+        text={currentPage}
+        id="fabBtn"
+        style={{ width: "57%" }}
+        link="/scheduleApt"
+        onClick={() => {
+          setPage("schedule");
+        }}
+      ></Fab>
+    </Page>
+  );
+}
+// export default HomePage;

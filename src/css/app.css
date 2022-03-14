@@ -4,10 +4,34 @@
   --f7-theme-color-rgb: 56, 177, 180;
   --f7-theme-color-shade: #2e9295;
   --f7-theme-color-tint: #4dc5c8;
+  /* display: inline-flex;
+  align-items: center; */
 }
 
 #flavorText {
-  display: inline-flex;
-  float: right;
+  /* display: inline-flex; */
+  text-align: center;
+}
+#fabBtn {
+  font-size: 1px;
+}
+#samLogo {
+  /* bring your own prefixes */
+  /* transform: translate(-50%, -50%); */
+  width: 100%;
+  height: 10%;
+  /* margin-left: 10%; */
+  margin-top: 7%;
+}
+#samPic {
+  border-radius: 3%;
 }
 /* Your app custom styles here */
+.center {
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  /* transform: translate(-50%, -50%); */
+  text-align: center;
+}
